@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Install Webserver') {
+            steps {
+                echo 'Steps to install webserver'
+                sh 'sudo apt install apache2 -y'
+            }
+        }
+        stage('Fetch code') {
+            steps {
+                echo 'Steps to fetch code'
+                git branch: 'main', url: 'https://github.com/madhurich-7/jenkinpipeline-demo.git'
+            }
+        }
+        stage('Deploy code') {
+            steps {
+                echo 'steps to deploy code'
+                sh 'sudo cp -R * /var/www/html/'
+            }
+        }
+    }
+}
