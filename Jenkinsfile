@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Install webserver') {
       steps {
-        sh 'sudo apt install apache -y'
+        sh 'sudo apt install apache2 -y'
       }
     }
 
